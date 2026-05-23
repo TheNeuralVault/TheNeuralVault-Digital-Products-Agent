@@ -19,7 +19,7 @@ echo "============================================"
 # Pull all upstream intelligence from Drive
 echo "Pulling federation intelligence from Drive..."
 rclone copy NeuralVault:theneuralvault/intel/ intel/ --include "*.md"
-rclone copy NeuralVault:theneuralvault/briefs/ briefs/ --include "*.md" --recursive
+rclone copy NeuralVault:theneuralvault/briefs/ briefs/ --include "*.md"
 
 # Find latest inputs
 LATEST_INTEL=$(ls -t intel/*.md 2>/dev/null | head -1)
