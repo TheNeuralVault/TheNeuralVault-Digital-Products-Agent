@@ -20,10 +20,12 @@ echo "============================================"
 echo "Pulling federation intelligence from Drive..."
 rclone copy NeuralVault:theneuralvault/intel/ intel/ --include "*.md"
 rclone copy NeuralVault:theneuralvault/briefs/ briefs/ --include "*.md"
+rclone copy NeuralVault:theneuralvault/briefs/brand/ briefs/brand/ --include "*.md"
+rclone copy NeuralVault:theneuralvault/briefs/seo/ briefs/seo/ --include "*.md"
 
 # Find latest inputs
 LATEST_INTEL=$(ls -t intel/*.md 2>/dev/null | head -1)
-LATEST_SEO=$(ls -t briefs/seo*.md 2>/dev/null | head -1)
+LATEST_SEO=$(ls -t briefs/seo*.md briefs/seo/*.md 2>/dev/null | head -1)
 LATEST_BRAND=$(ls -t briefs/brand/*.md 2>/dev/null | head -1)
 
 echo "Intel:  ${LATEST_INTEL:-none}"
